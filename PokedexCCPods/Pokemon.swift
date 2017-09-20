@@ -27,8 +27,8 @@ struct Pokemon {
         let topAbilityDeeperDictionary = topAbilityDictionary?[Constants.abilityKey] as? [String: String]
         let topAbility = topAbilityDeeperDictionary?[Constants.nameKey]
         
-        let spritesDictionary = dictionary[Constants.spritesKey] as? [String: String]
-        let spriteURL = spritesDictionary?[Constants.frontDefaultKey]
+        let spritesDictionary = dictionary[Constants.spritesKey] as? [String: Any]
+        let spriteURL = spritesDictionary?[Constants.frontDefaultKey] as? String
         
         self.topAbility = topAbility
         self.spriteURL = spriteURL
@@ -37,6 +37,6 @@ struct Pokemon {
 
 extension Pokemon {
     mutating func setSpriteData(data: Data?) {
-        self.spriteData = spriteData
+        self.spriteData = data
     }
 }

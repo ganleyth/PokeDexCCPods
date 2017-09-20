@@ -14,13 +14,17 @@ class PokemonController {
     static let shared = PokemonController()
     
     func fetchRandomPokemon(with completion: @escaping (Pokemon?) -> Void) {
-        let randomPokemonID = GKRandomSource.sharedRandom().nextInt(upperBound: 152)
+        let randomPokemonID = GKRandomSource.sharedRandom().nextInt(upperBound: 153) - 1
         
         guard let pokemonSearchURL = Constants.baseURL?.appendingPathComponent("\(randomPokemonID)") else { completion(nil); return }
         
         NetworkClient.performDataTaskWith(baseURL: pokemonSearchURL, httpMethod: .get) { (data, error) in
             var pokemon: Pokemon? = nil
-            defer { completion(pokemon) }
+            defer {
+                DispatchQueue.main.async {
+                    completion(pokemon)
+                }
+            }
             
             if let error = error { NSLog("Error fetching pokemon: \(error.localizedDescription)"); return }
             guard let data = data else { NSLog("Data returned from pokemon fetch is nil"); return }

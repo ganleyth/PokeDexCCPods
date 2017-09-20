@@ -19,5 +19,5 @@ struct Constants {
     static let frontDefaultKey = "front_default"
     
     // URL
-    static let baseURL = URL(string: "//www.pokeapi.co/api/v2/pokemon")
+    static let baseURL = URL(string: "https://www.pokeapi.co/api/v2/pokemon")
 }
