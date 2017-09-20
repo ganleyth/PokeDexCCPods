@@ -18,7 +18,7 @@ class PokemonController {
         
         guard let pokemonSearchURL = Constants.baseURL?.appendingPathComponent("\(randomPokemonID)") else { completion(nil); return }
         
-        NetworkClient.performDataTaskWith(baseURL: pokemonSearchURL, httpMethod: .get) { (data, error) in
+        NetworkClient.performDataTaskWith(baseURL: pokemonSearchURL, httpMethod: .get) { (response) in
             var pokemon: Pokemon? = nil
             defer {
                 DispatchQueue.main.async {
@@ -26,14 +26,10 @@ class PokemonController {
                 }
             }
             
-            if let error = error { NSLog("Error fetching pokemon: \(error.localizedDescription)"); return }
-            guard let data = data else { NSLog("Data returned from pokemon fetch is nil"); return }
+            guard let response = response else { completion(nil); return }
             
-            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else {
-                NSLog("Could not serialize returned pokemon data")
-                return
-            }
-            
+            guard let jsonDictionary = response.value as? [String: Any] else { completion(nil); return }
+
             pokemon = Pokemon(dictionary: jsonDictionary)
         }
     }

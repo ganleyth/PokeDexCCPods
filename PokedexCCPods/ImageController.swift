@@ -8,18 +8,15 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class ImageController {
     
     static func fetchImage(atURL url: URL, with completion: @escaping (UIImage?) -> Void) {
-        NetworkClient.performDataTaskWith(baseURL: url, httpMethod: .get) { (data, error) in
-            var image: UIImage? = nil
-            defer { completion(image) }
-            
-            if let error = error { NSLog("Error fetching image: \(error.localizedDescription)"); return }
-            guard let data = data else { NSLog("Data returned from image fetch is nil"); return }
-            
-            image = UIImage(data: data)
+        Alamofire.request(url).responseData { (response) in
+            guard let data = response.value else { completion(nil); return }
+            let image = UIImage(data: data)
+            completion(image)
         }
     }
 }
