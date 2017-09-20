@@ -11,4 +11,16 @@ import Foundation
 struct Trainer {
     let username: String
     let password: String
+    var capturedPokemon: [Pokemon] = []
+    
+    init(username: String, password: String) {
+        self.username = username
+        self.password = password
+    }
+}
+
+extension Trainer {
+    mutating func addCapturedPokemon(_ pokemon: Pokemon) {
+        self.capturedPokemon.append(pokemon)
+    }
 }
