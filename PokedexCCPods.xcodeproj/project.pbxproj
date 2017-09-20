@@ -8,21 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		18A38FFD1F71A63800EFDCA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A38FFC1F71A63800EFDCA6 /* AppDelegate.swift */; };
-		18A38FFF1F71A63800EFDCA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A38FFE1F71A63800EFDCA6 /* ViewController.swift */; };
 		18A390021F71A63800EFDCA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A390001F71A63800EFDCA6 /* Main.storyboard */; };
 		18A390041F71A63800EFDCA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A390031F71A63800EFDCA6 /* Assets.xcassets */; };
 		18A390071F71A63800EFDCA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A390051F71A63800EFDCA6 /* LaunchScreen.storyboard */; };
+		18A390171F71ADEA00EFDCA6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A390161F71ADEA00EFDCA6 /* LoginViewController.swift */; };
+		18A390191F71ADF300EFDCA6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A390181F71ADF300EFDCA6 /* SignupViewController.swift */; };
+		18A3901B1F71ADFE00EFDCA6 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3901A1F71ADFE00EFDCA6 /* PokemonListViewController.swift */; };
+		18A3901D1F71AE0600EFDCA6 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3901C1F71AE0600EFDCA6 /* PokemonDetailViewController.swift */; };
+		18A3901F1F71AE0D00EFDCA6 /* PokemonCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3901E1F71AE0D00EFDCA6 /* PokemonCaptureViewController.swift */; };
 		318928015EF2AFBBA37DFBC7 /* Pods_PokedexCCPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3555AE309BC3DC2F5ADD41 /* Pods_PokedexCCPods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18A38FF91F71A63800EFDCA6 /* PokedexCCPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexCCPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A38FFC1F71A63800EFDCA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18A38FFE1F71A63800EFDCA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18A390011F71A63800EFDCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18A390031F71A63800EFDCA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18A390061F71A63800EFDCA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18A390081F71A63800EFDCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18A390161F71ADEA00EFDCA6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		18A390181F71ADF300EFDCA6 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		18A3901A1F71ADFE00EFDCA6 /* PokemonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
+		18A3901C1F71AE0600EFDCA6 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
+		18A3901E1F71AE0D00EFDCA6 /* PokemonCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCaptureViewController.swift; sourceTree = "<group>"; };
 		1E3555AE309BC3DC2F5ADD41 /* Pods_PokedexCCPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokedexCCPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB72A998C01C22B5CD1098 /* Pods-PokedexCCPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexCCPods.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokedexCCPods/Pods-PokedexCCPods.release.xcconfig"; sourceTree = "<group>"; };
 		3DA72802F8F687642FF7962A /* Pods-PokedexCCPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexCCPods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokedexCCPods/Pods-PokedexCCPods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,14 +69,74 @@
 		18A38FFB1F71A63800EFDCA6 /* PokedexCCPods */ = {
 			isa = PBXGroup;
 			children = (
-				18A38FFC1F71A63800EFDCA6 /* AppDelegate.swift */,
-				18A38FFE1F71A63800EFDCA6 /* ViewController.swift */,
-				18A390001F71A63800EFDCA6 /* Main.storyboard */,
+				18A3900F1F71AD8500EFDCA6 /* Storyboards */,
+				18A390141F71ADC000EFDCA6 /* View */,
+				18A390131F71ADBA00EFDCA6 /* ModelController */,
+				18A390121F71ADB400EFDCA6 /* Model */,
+				18A390101F71AD9300EFDCA6 /* ViewControllers */,
+				18A390151F71ADCD00EFDCA6 /* Networking */,
+				18A3900E1F71AD7B00EFDCA6 /* Resources */,
+			);
+			path = PokedexCCPods;
+			sourceTree = "<group>";
+		};
+		18A3900E1F71AD7B00EFDCA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				18A390031F71A63800EFDCA6 /* Assets.xcassets */,
+				18A38FFC1F71A63800EFDCA6 /* AppDelegate.swift */,
 				18A390051F71A63800EFDCA6 /* LaunchScreen.storyboard */,
 				18A390081F71A63800EFDCA6 /* Info.plist */,
 			);
-			path = PokedexCCPods;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		18A3900F1F71AD8500EFDCA6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				18A390001F71A63800EFDCA6 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		18A390101F71AD9300EFDCA6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18A390161F71ADEA00EFDCA6 /* LoginViewController.swift */,
+				18A390181F71ADF300EFDCA6 /* SignupViewController.swift */,
+				18A3901A1F71ADFE00EFDCA6 /* PokemonListViewController.swift */,
+				18A3901C1F71AE0600EFDCA6 /* PokemonDetailViewController.swift */,
+				18A3901E1F71AE0D00EFDCA6 /* PokemonCaptureViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18A390121F71ADB400EFDCA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		18A390131F71ADBA00EFDCA6 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ModelController;
+			sourceTree = "<group>";
+		};
+		18A390141F71ADC000EFDCA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		18A390151F71ADCD00EFDCA6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		3C14D93E5A06C98808CD8C67 /* Pods */ = {
@@ -222,8 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A38FFF1F71A63800EFDCA6 /* ViewController.swift in Sources */,
+				18A390191F71ADF300EFDCA6 /* SignupViewController.swift in Sources */,
+				18A390171F71ADEA00EFDCA6 /* LoginViewController.swift in Sources */,
+				18A3901D1F71AE0600EFDCA6 /* PokemonDetailViewController.swift in Sources */,
+				18A3901B1F71ADFE00EFDCA6 /* PokemonListViewController.swift in Sources */,
 				18A38FFD1F71A63800EFDCA6 /* AppDelegate.swift in Sources */,
+				18A3901F1F71AE0D00EFDCA6 /* PokemonCaptureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +461,7 @@
 				18A3900D1F71A63800EFDCA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
