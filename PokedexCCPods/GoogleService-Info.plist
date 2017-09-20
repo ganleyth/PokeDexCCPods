@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>30684621304-c97h5l0go9pt61vocb4fk4bptj8pre8d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.30684621304-c97h5l0go9pt61vocb4fk4bptj8pre8d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAPgiGDMsCqHPCosyxgQijf2WjJ5GNFUv4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>30684621304</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ganleyApps.PokedexCCPods</string>
+	<key>PROJECT_ID</key>
+	<string>pokedexccpods</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pokedexccpods.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:30684621304:ios:62039f3a27d9efd1</string>
+	<key>DATABASE_URL</key>
+	<string>https://pokedexccpods.firebaseio.com</string>
+</dict>
+</plist>
