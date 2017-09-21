@@ -27,6 +27,9 @@ class PokemonDetailViewController: UIViewController {
     }
     
     @IBAction func releaseButtonTapped(_ sender: UIButton) {
+        guard let pokemon = pokemon else { return }
+        PokemonController.shared.setCapturedPokemonFree(pokemon: pokemon)
+        presentPokemonSetFreeAlert()
     }
 
     func updateViews() {
@@ -39,5 +42,17 @@ class PokemonDetailViewController: UIViewController {
         if let spriteData = pokemon?.spriteData {
             spriteImageView.image = UIImage(data: spriteData)
         }
+    }
+    
+    func presentPokemonSetFreeAlert() {
+        let title = "Pokemon Set Free!"
+        let message = "Tap OK to return to your remaining captured Pokemon"
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }

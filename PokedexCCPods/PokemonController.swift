@@ -49,6 +49,15 @@ class PokemonController {
         databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).setValue(pokemonJSONData)
     }
     
+    func setCapturedPokemonFree(pokemon: Pokemon) {
+        guard let trainerID = TrainerController.currentUser?.uid,
+            let index = capturedPokemon.index(where: { $0.name == pokemon.name }) else { return }
+        
+        capturedPokemon.remove(at: index)
+        
+        databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).removeValue()
+    }
+    
     func fetchCapturedPokemon() {
         guard let trainerID = TrainerController.currentUser?.uid else { return }
         
