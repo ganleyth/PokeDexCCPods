@@ -14,10 +14,9 @@ class FirebaseController {
     static let shared = FirebaseController()
     let auth = Auth.auth()
     
-    func createUserWith(email: String, password: String, completion: @escaping (User?) -> Void) {
+    func createUserWith(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
         auth.createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error { NSLog("Error encountered creating new user: \(error.localizedDescription)"); completion(nil); return }
-            completion(user)
+            completion(user, error)
         }
     }
 }
