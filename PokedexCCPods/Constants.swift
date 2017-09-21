@@ -25,4 +25,7 @@ struct Constants {
     
     // URL
     static let baseURL = URL(string: "https://www.pokeapi.co/api/v2/pokemon")
+    
+    // Notifications
+    static let capturedPokemonUpdatedNotification: Notification.Name = Notification.Name(rawValue: "capturedPokemonUpdated")
 }

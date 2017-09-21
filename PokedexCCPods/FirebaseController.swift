@@ -16,14 +16,17 @@ class FirebaseController {
     
     func createUserWith(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
         auth.createUser(withEmail: email, password: password) { (user, error) in
-            completion(user, error)
+            DispatchQueue.main.async {
+                completion(user, error)
+            }
         }
     }
     
     func loginUserWith(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
         auth.signIn(withEmail: email, password: password) { (user, error) in
-            completion(user, error)
+            DispatchQueue.main.async {
+                completion(user, error)
+            }
         }
     }
 }
-

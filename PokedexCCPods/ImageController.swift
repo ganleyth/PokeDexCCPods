@@ -16,7 +16,9 @@ class ImageController {
         Alamofire.request(url).responseData { (response) in
             guard let data = response.value else { completion(nil); return }
             let image = UIImage(data: data)
-            completion(image)
+            DispatchQueue.main.async {
+                completion(image)
+            }
         }
     }
 }

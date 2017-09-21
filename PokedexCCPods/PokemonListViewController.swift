@@ -18,6 +18,8 @@ class PokemonListViewController: UIViewController {
         
         tableView.dataSource = dataProvider
         tableView.delegate = dataProvider
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Constants.capturedPokemonUpdatedNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,5 +34,9 @@ class PokemonListViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+    }
+    
+    func refresh() {
+        tableView.reloadData()
     }
 }

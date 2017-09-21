@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
     
     func validateUserAndProceed(error: Error?) {
         if TrainerController.currentUser != nil {
+            PokemonController.shared.fetchCapturedPokemon()
             let title = "User Login Successful"
             let message = "Tap OK to proceed"
             presentSimpleAlertWith(title: title, message: message, completion: { (_) in

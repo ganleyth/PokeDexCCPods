@@ -45,4 +45,37 @@ class PokemonController {
         
         databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).setValue(pokemonJSONData)
     }
+    
+    func fetchCapturedPokemon() {
+        guard let trainerID = TrainerController.currentUser?.uid else { return }
+        
+        databaseRef.child(trainerID).child(Constants.pokemonKey).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let jsonDictionary = snapshot.value as? [String: [String: Any]] else {
+                NSLog("Could not properly fetch captured pokemon")
+                return
+            }
+            
+            for (_, value) in jsonDictionary {
+                if var pokemon = Pokemon(firebaseDictionary: value),
+                    let spriteURLString = pokemon.spriteURL,
+                    let spriteURL = URL(string: spriteURLString) {
+                    
+                    ImageController.fetchImage(atURL: spriteURL, with: { (image) in
+                        if let image = image,
+                            let imageData = UIImagePNGRepresentation(image) {
+                            
+                            pokemon.setSpriteData(data: imageData)
+                            self.capturedPokemon.append(pokemon)
+                            
+                            DispatchQueue.main.async {
+                                NotificationCenter.default.post(name: Constants.capturedPokemonUpdatedNotification, object: self)
+                            }
+                        }
+                    })
+                }
+            }
+        }) { (error) in
+            NSLog(error.localizedDescription)
+        }
+    }
 }
