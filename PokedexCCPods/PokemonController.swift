@@ -15,6 +15,9 @@ class PokemonController {
     static let shared = PokemonController()
     let databaseRef = Database.database().reference()
     var capturedPokemon: [Pokemon] = []
+    var sortedCapturedPokemon: [Pokemon] {
+        return capturedPokemon.sorted { $0.name < $1.name }
+    }
     
     func fetchRandomPokemon(with completion: @escaping (Pokemon?) -> Void) {
         let randomPokemonID = GKRandomSource.sharedRandom().nextInt(upperBound: 153) - 1

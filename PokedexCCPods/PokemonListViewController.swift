@@ -33,7 +33,13 @@ class PokemonListViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if segue.identifier == "showPokemonDetail" {
+            guard let destinationVC = segue.destination as? PokemonDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            let pokemon = PokemonController.shared.sortedCapturedPokemon[indexPath.row]
+            destinationVC.pokemon = pokemon
+        }
     }
     
     func refresh() {

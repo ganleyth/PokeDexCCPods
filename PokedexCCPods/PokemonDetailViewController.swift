@@ -23,29 +23,21 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchRandomPokemon()
+        updateViews()
     }
     
     @IBAction func releaseButtonTapped(_ sender: UIButton) {
     }
-    
-    func fetchRandomPokemon() {
-        PokemonController.shared.fetchRandomPokemon { (pokemon) in
-            self.pokemon = pokemon
-        }
-    }
-    
+
     func updateViews() {
-        nameLabel.text = pokemon?.name
-        if let id = pokemon?.id { idLabel.text = "\(id)" }
-        abilityLabel.text = pokemon?.topAbility
+        guard isViewLoaded else { return }
         
-        if let spriteURLString = pokemon?.spriteURL,
-            let spriteURL = URL(string: spriteURLString) {
-            
-            ImageController.fetchImage(atURL: spriteURL, with: { (spriteImage) in
-                self.spriteImageView = UIImageView(image: spriteImage)
-            })
+        nameLabel.text = pokemon?.name.capitalized
+        idLabel.text = pokemon == nil ? "Unknown" : "\(pokemon!.id)"
+        abilityLabel.text = pokemon?.topAbility?.capitalized
+        
+        if let spriteData = pokemon?.spriteData {
+            spriteImageView.image = UIImage(data: spriteData)
         }
     }
 }

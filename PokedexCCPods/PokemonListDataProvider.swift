@@ -12,7 +12,7 @@ import UIKit
 class PokemonListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PokemonController.shared.capturedPokemon.count
+        return PokemonController.shared.sortedCapturedPokemon.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,7 +20,7 @@ class PokemonListDataProvider: NSObject, UITableViewDataSource, UITableViewDeleg
             return UITableViewCell()
         }
         
-        let pokemon = PokemonController.shared.capturedPokemon[indexPath.row]
+        let pokemon = PokemonController.shared.sortedCapturedPokemon[indexPath.row]
         cell.updateCell(with: pokemon)
         return cell
     }
