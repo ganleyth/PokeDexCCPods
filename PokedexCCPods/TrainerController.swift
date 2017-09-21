@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class TrainerController {
-    static var currentTrainer: Trainer? = Trainer(username: "tom", password: "ganley")
+    static var currentUser: User?
     
     static func addCapturedPokemonToCurrentTrainer(pokemon: Pokemon) {
-        currentTrainer?.addCapturedPokemon(pokemon)
+        //currentUser?.addCapturedPokemon(pokemon)
     }
 }
