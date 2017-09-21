@@ -19,5 +19,11 @@ class FirebaseController {
             completion(user, error)
         }
     }
+    
+    func loginUserWith(email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+        auth.signIn(withEmail: email, password: password) { (user, error) in
+            completion(user, error)
+        }
+    }
 }
 
