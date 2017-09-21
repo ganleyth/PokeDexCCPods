@@ -14,7 +14,8 @@ struct Pokemon {
     let topAbility: String?
     let spriteURL: String?
     var spriteData: Data?
-    
+    var trainerID: String?
+
     init?(dictionary: [String: Any]) {
         guard let name = dictionary[Constants.nameKey] as? String,
             let id = dictionary[Constants.idKey] as? Int else { return nil }
@@ -35,8 +36,44 @@ struct Pokemon {
     }
 }
 
+// Accessors
 extension Pokemon {
     mutating func setSpriteData(data: Data?) {
         self.spriteData = data
+    }
+    
+    mutating func setTrainerID(trainerID: String?) {
+        self.trainerID = trainerID
+    }
+}
+
+// Firebase dictionary translations
+extension Pokemon {
+    var dictionaryRepresentation: [String: Any] {
+        var dictionary: [String: Any] = [:]
+        
+        dictionary[Constants.nameKey] = self.name
+        dictionary[Constants.idKey] = self.id
+        dictionary[Constants.abilityKey] = self.topAbility
+        dictionary[Constants.frontDefaultKey] = self.spriteURL
+        dictionary[Constants.trainerIDKey] = self.trainerID
+        
+        return dictionary
+    }
+    
+    init?(firebaseDictionary: [String: Any]) {
+        guard let name = firebaseDictionary[Constants.nameKey] as? String,
+            let id = firebaseDictionary[Constants.idKey] as? Int else { return nil }
+        
+        self.name = name
+        self.id = id
+        
+        let topAbility = firebaseDictionary[Constants.abilityKey] as? String
+        let spriteURL = firebaseDictionary[Constants.frontDefaultKey] as? String
+        let trainerID = firebaseDictionary[Constants.trainerIDKey] as? String
+
+        self.topAbility = topAbility
+        self.spriteURL = spriteURL
+        self.trainerID = trainerID        
     }
 }

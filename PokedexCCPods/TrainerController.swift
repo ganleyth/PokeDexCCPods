@@ -12,7 +12,10 @@ import FirebaseAuth
 class TrainerController {
     static var currentUser: User?
     
-    static func addCapturedPokemonToCurrentTrainer(pokemon: Pokemon) {
-        //currentUser?.addCapturedPokemon(pokemon)
+    static func addCapturedPokemon(_ pokemon: Pokemon, with completion: (Bool) -> Void) {
+        var pokemon = pokemon
+        pokemon.setTrainerID(trainerID: currentUser?.uid)
+        
+        PokemonController.shared.addCapturedPokemon(pokemon)
     }
 }

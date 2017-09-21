@@ -39,6 +39,10 @@ class PokemonCaptureViewController: UIViewController {
         
         let pokemonCaptured = abs(throwingDistance - pokemonDistance) <= distanceAccuracy
         
+        if pokemonCaptured {
+            
+        }
+        
         presentPokeballThrownAlert(pokemonCaptured: pokemonCaptured)
     }
     

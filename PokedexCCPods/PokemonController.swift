@@ -12,6 +12,7 @@ import GameKit
 class PokemonController {
     
     static let shared = PokemonController()
+    var capturedPokemon: [Pokemon] = []
     
     func fetchRandomPokemon(with completion: @escaping (Pokemon?) -> Void) {
         let randomPokemonID = GKRandomSource.sharedRandom().nextInt(upperBound: 153) - 1
@@ -32,5 +33,9 @@ class PokemonController {
 
             pokemon = Pokemon(dictionary: jsonDictionary)
         }
+    }
+    
+    func addCapturedPokemon(_ pokemon: Pokemon) {
+        capturedPokemon.append(pokemon)
     }
 }
