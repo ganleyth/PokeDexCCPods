@@ -8,10 +8,12 @@
 
 import Foundation
 import GameKit
+import FirebaseDatabase
 
 class PokemonController {
     
     static let shared = PokemonController()
+    let databaseRef = Database.database().reference()
     var capturedPokemon: [Pokemon] = []
     
     func fetchRandomPokemon(with completion: @escaping (Pokemon?) -> Void) {
@@ -36,6 +38,11 @@ class PokemonController {
     }
     
     func addCapturedPokemon(_ pokemon: Pokemon) {
+        guard let trainerID = TrainerController.currentUser?.uid else { return }
+        
         capturedPokemon.append(pokemon)
+        let pokemonJSONData = pokemon.dictionaryRepresentation
+        
+        databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).setValue(pokemonJSONData)
     }
 }

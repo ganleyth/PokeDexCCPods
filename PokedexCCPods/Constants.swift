@@ -21,6 +21,7 @@ struct Constants {
     // Firebase specific keys
     static let spriteImageKey = "spriteImage"
     static let trainerIDKey = "trainerID"
+    static let pokemonKey = "pokemon"
     
     // URL
     static let baseURL = URL(string: "https://www.pokeapi.co/api/v2/pokemon")
