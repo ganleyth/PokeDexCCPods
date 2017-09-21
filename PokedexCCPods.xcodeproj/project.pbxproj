@@ -24,6 +24,8 @@
 		18A3902D1F72943300EFDCA6 /* TrainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3902C1F72943300EFDCA6 /* TrainerController.swift */; };
 		18AEB7CE1F72FB9600235644 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18AEB7CD1F72FB5A00235644 /* GoogleService-Info.plist */; };
 		18AEB7D01F73391200235644 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AEB7CF1F73391200235644 /* FirebaseController.swift */; };
+		18AEB7D51F73F78100235644 /* PokemonListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AEB7D41F73F78100235644 /* PokemonListDataProvider.swift */; };
+		18AEB7D71F73FA0100235644 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AEB7D61F73FA0100235644 /* PokemonTableViewCell.swift */; };
 		318928015EF2AFBBA37DFBC7 /* Pods_PokedexCCPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3555AE309BC3DC2F5ADD41 /* Pods_PokedexCCPods.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		18A3902C1F72943300EFDCA6 /* TrainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerController.swift; sourceTree = "<group>"; };
 		18AEB7CD1F72FB5A00235644 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18AEB7CF1F73391200235644 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		18AEB7D41F73F78100235644 /* PokemonListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListDataProvider.swift; sourceTree = "<group>"; };
+		18AEB7D61F73FA0100235644 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
 		1E3555AE309BC3DC2F5ADD41 /* Pods_PokedexCCPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokedexCCPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB72A998C01C22B5CD1098 /* Pods-PokedexCCPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexCCPods.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokedexCCPods/Pods-PokedexCCPods.release.xcconfig"; sourceTree = "<group>"; };
 		3DA72802F8F687642FF7962A /* Pods-PokedexCCPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokedexCCPods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokedexCCPods/Pods-PokedexCCPods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				18A390131F71ADBA00EFDCA6 /* ModelController */,
 				18A390121F71ADB400EFDCA6 /* Model */,
 				18A390101F71AD9300EFDCA6 /* ViewControllers */,
+				18AEB7D31F73F76000235644 /* DataProviders */,
 				18A390151F71ADCD00EFDCA6 /* Networking */,
 				18A3900E1F71AD7B00EFDCA6 /* Resources */,
 			);
@@ -149,6 +154,7 @@
 		18A390141F71ADC000EFDCA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18AEB7D61F73FA0100235644 /* PokemonTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 				18AEB7CF1F73391200235644 /* FirebaseController.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		18AEB7D31F73F76000235644 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				18AEB7D41F73F78100235644 /* PokemonListDataProvider.swift */,
+			);
+			name = DataProviders;
 			sourceTree = "<group>";
 		};
 		3C14D93E5A06C98808CD8C67 /* Pods */ = {
@@ -315,9 +329,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AEB7D71F73FA0100235644 /* PokemonTableViewCell.swift in Sources */,
 				18A3902D1F72943300EFDCA6 /* TrainerController.swift in Sources */,
 				18A390271F72893800EFDCA6 /* NetworkClient.swift in Sources */,
 				18A390211F7284EF00EFDCA6 /* Pokemon.swift in Sources */,
+				18AEB7D51F73F78100235644 /* PokemonListDataProvider.swift in Sources */,
 				18A390191F71ADF300EFDCA6 /* SignupViewController.swift in Sources */,
 				18A390171F71ADEA00EFDCA6 /* LoginViewController.swift in Sources */,
 				18A3901D1F71AE0600EFDCA6 /* PokemonDetailViewController.swift in Sources */,

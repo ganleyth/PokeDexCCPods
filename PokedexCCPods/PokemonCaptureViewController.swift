@@ -32,7 +32,7 @@ class PokemonCaptureViewController: UIViewController {
     }
     
     @IBAction func throwPokeballButtonTapped(_ sender: UIButton) {
-        guard let pokemon = pokemon,
+        guard var pokemon = pokemon,
             let pokemonDistance = pokemonDistance,
             let distanceAccuracy = distanceAccuracy else { return }
         
@@ -41,6 +41,11 @@ class PokemonCaptureViewController: UIViewController {
         let pokemonCaptured = abs(throwingDistance - pokemonDistance) <= distanceAccuracy
         
         if pokemonCaptured {
+            if let pokemonSpriteImage = spriteImageView.image {
+                let spriteData = UIImagePNGRepresentation(pokemonSpriteImage)
+                pokemon.setSpriteData(data: spriteData)
+            }
+            
             TrainerController.addCapturedPokemon(pokemon, with: { (_) in })
         }
         
