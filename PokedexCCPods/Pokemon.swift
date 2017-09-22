@@ -15,7 +15,10 @@ struct Pokemon {
     let spriteURL: String?
     var spriteData: Data?
     var trainerID: String?
+}
 
+// Failable init for JSON parsing
+extension Pokemon {
     init?(dictionary: [String: Any]) {
         guard let name = dictionary[Constants.nameKey] as? String,
             let id = dictionary[Constants.idKey] as? Int else { return nil }
@@ -75,5 +78,43 @@ extension Pokemon {
         self.topAbility = topAbility
         self.spriteURL = spriteURL
         self.trainerID = trainerID        
+    }
+}
+
+// Custom codable
+extension Pokemon: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case id
+        case topAbility
+        case spriteURL
+        case trainerID
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.topAbility, forKey: .topAbility)
+        try container.encode(self.spriteURL, forKey: .spriteURL)
+        try container.encode(self.trainerID, forKey: .trainerID)
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let name = try container.decode(String.self, forKey: .name)
+        let id = try container.decode(Int.self, forKey: .id)
+        let topAbility = try container.decodeIfPresent(String.self, forKey: .topAbility)
+        let spriteURL = try container.decodeIfPresent(String.self, forKey: .spriteURL)
+        let trainerID = try container.decodeIfPresent(String.self, forKey: .trainerID)
+        
+        self.name = name
+        self.id = id
+        self.topAbility = topAbility
+        self.spriteURL = spriteURL
+        self.trainerID = trainerID
     }
 }

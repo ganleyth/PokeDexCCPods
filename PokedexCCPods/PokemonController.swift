@@ -44,9 +44,18 @@ class PokemonController {
         guard let trainerID = TrainerController.currentUser?.uid else { return }
         
         capturedPokemon.append(pokemon)
-        let pokemonJSONData = pokemon.dictionaryRepresentation
         
-        databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).setValue(pokemonJSONData)
+        let encoder = JSONEncoder()
+        
+        do {
+            let jsonData = try encoder.encode(pokemon)
+            let jsonDictionary = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
+            let jsonDataString = String(data: jsonData, encoding: .utf8)
+            print(jsonDataString)
+            databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).setValue(jsonDictionary)
+        } catch {
+            NSLog("Error encountered encoding pokemon: \(error.localizedDescription)")
+        }
     }
     
     func setCapturedPokemonFree(pokemon: Pokemon) {
