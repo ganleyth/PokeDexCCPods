@@ -50,8 +50,6 @@ class PokemonController {
         do {
             let jsonData = try encoder.encode(pokemon)
             let jsonDictionary = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String: Any]
-            let jsonDataString = String(data: jsonData, encoding: .utf8)
-            print(jsonDataString)
             databaseRef.child(trainerID).child(Constants.pokemonKey).child(pokemon.name).setValue(jsonDictionary)
         } catch {
             NSLog("Error encountered encoding pokemon: \(error.localizedDescription)")
@@ -71,29 +69,38 @@ class PokemonController {
         guard let trainerID = TrainerController.currentUser?.uid else { return }
         
         databaseRef.child(trainerID).child(Constants.pokemonKey).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let jsonDictionary = snapshot.value as? [String: [String: Any]] else {
-                NSLog("Could not properly fetch captured pokemon")
-                return
+            guard let jsonDictionary = snapshot.value else { NSLog("Could not properly fetch captured pokemon"); return }
+            
+            let decoder = JSONDecoder()
+            
+            var capturedPokemon: [String: Pokemon]? = nil
+            
+            do {
+                let jsonDictionaryData = try JSONSerialization.data(withJSONObject: jsonDictionary, options: JSONSerialization.WritingOptions.prettyPrinted)
+                capturedPokemon = try decoder.decode([String: Pokemon].self, from: jsonDictionaryData)
+            } catch {
+                NSLog("Error decoding pokemon data: \(error.localizedDescription)")
             }
             
-            for (_, value) in jsonDictionary {
-                if var pokemon = Pokemon(firebaseDictionary: value),
-                    let spriteURLString = pokemon.spriteURL,
-                    let spriteURL = URL(string: spriteURLString) {
-                    
-                    ImageController.fetchImage(atURL: spriteURL, with: { (image) in
-                        if let image = image,
-                            let imageData = UIImagePNGRepresentation(image) {
-                            
-                            pokemon.setSpriteData(data: imageData)
-                            self.capturedPokemon.append(pokemon)
-                            
-                            DispatchQueue.main.async {
-                                NotificationCenter.default.post(name: Constants.capturedPokemonUpdatedNotification, object: self)
-                            }
+            guard let capturedPokemonUnwrapped = capturedPokemon else { return }
+            
+            for (_, var pokemon) in capturedPokemonUnwrapped {
+                
+                guard let spriteURLString = pokemon.spriteURL,
+                    let spriteURL = URL(string: spriteURLString) else { continue }
+                
+                ImageController.fetchImage(atURL: spriteURL, with: { (image) in
+                    if let image = image,
+                        let imageData = UIImagePNGRepresentation(image) {
+                        
+                        pokemon.setSpriteData(data: imageData)
+                        self.capturedPokemon.append(pokemon)
+                        
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: Constants.capturedPokemonUpdatedNotification, object: self)
                         }
-                    })
-                }
+                    }
+                })
             }
         }) { (error) in
             NSLog(error.localizedDescription)
